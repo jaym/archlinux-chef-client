@@ -15,10 +15,6 @@ package() {
   cd "$srcdir"
   bsdtar -xf data.tar.gz -C "$pkgdir"
 
-  # cleanup .git folders, any idea why they are in the package?
-  find $pkgdir -type d -name ".git" | xargs  rm -rf
-
-  # link executables
   binaries="chef-apply chef-client chef-shell knife"
 
   mkdir -p $pkgdir/usr/bin
